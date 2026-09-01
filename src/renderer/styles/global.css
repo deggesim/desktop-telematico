@@ -1,0 +1,71 @@
+/**
+ * Override applicativi sopra il design kit.
+ *
+ * Il kit non ha sorgenti SCSS e le sourcemap sono vuote: qualunque
+ * personalizzazione può essere solo un override, e va scritta qui.
+ * Regola: nessuna dichiarazione che ridefinisca un componente del kit senza
+ * un commento che dica perché.
+ */
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* Impaginazione a tre fasce: header, corpo con sidebar, footer.
+   Il footer resta in fondo anche con poco contenuto. */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+.app-body > .sidebar {
+  flex: 0 0 260px;
+  overflow-y: auto;
+}
+
+/* Skip link: il kit non ne fornisce uno ma per la PA è atteso.
+   Fuori schermo finché non riceve il focus. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1080;
+  padding: 0.5rem 1rem;
+  background: var(--bs-primary, #004080);
+  color: #fff;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Il target dello skip link riceve focus programmatico: nessun contorno
+   permanente, ma quello del kit resta visibile su :focus-visible. */
+.app-main:focus {
+  outline: none;
+}
+
+/* La card dell'area non usa stretched-link: dentro ci sono altri link e
+   si sovrapporrebbero. */
+.stretched-link-none::after {
+  content: none;
+}

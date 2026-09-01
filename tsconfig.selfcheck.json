@@ -1,0 +1,22 @@
+// Compila i self-check assert-based perché `node` li possa eseguire
+// (`npm run selfcheck`). Estende tsconfig.node.json così i tipi Node si
+// risolvono come nella build reale del main process, via
+// `types: ["electron-vite/node"]` — @types/node non è una dipendenza
+// dichiarata (arriva solo transitivamente da electron-vite), quindi passare
+// `--types node` da riga di comando fallirebbe con TS2688.
+//
+// module/moduleResolution sono forzati a NodeNext: package.json ha
+// "type": "module" e i sorgenti importano con estensione .js esplicita,
+// quindi l'emesso gira sotto node senza loader.
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "src",
+    "outDir": ".selfcheck-out",
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": ["src/shared/**/*.ts"]
+}

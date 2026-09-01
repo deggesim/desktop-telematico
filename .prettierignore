@@ -1,0 +1,17 @@
+out/
+dist/
+release/
+package-lock.json
+
+# Design kit vendorizzato — non riformattare, va tenuto identico al distribuito Sogei
+src/renderer/vendor/
+
+# docs
+docs/
+
+# Claude files
+.claude/
+CLAUDE.md
+src/main/CLAUDE.md
+src/renderer/CLAUDE.md
+src/shared/CLAUDE.md

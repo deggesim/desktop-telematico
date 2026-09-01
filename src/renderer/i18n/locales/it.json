@@ -1,0 +1,257 @@
+{
+  "app": {
+    "name": "Desktop Telematico Entrate",
+    "agency": "Agenzia delle entrate",
+    "agencyDetails": "Agenzia delle entrate - via Giorgione n. 106, 00147 Roma - Codice Fiscale e Partita Iva: 06363391001"
+  },
+  "header": {
+    "profileLabel": "Profilo",
+    "language": "Lingua",
+    "languageAria": "Selezione della lingua",
+    "exit": "Esci",
+    "exitAria": "Esci dall'applicazione",
+    "support": "Assistenza",
+    "menu": "Menu",
+    "home": "Home"
+  },
+  "footer": {
+    "support": "Assistenza",
+    "manual": "Manuale utente"
+  },
+  "a11y": {
+    "skipToContent": "Vai al contenuto principale",
+    "breadcrumb": "Percorso di navigazione"
+  },
+  "profile": {
+    "entratel": "Entratel",
+    "fisconline": "Fisconline"
+  },
+  "language": {
+    "it": "Italiano",
+    "en": "English"
+  },
+  "firstRun": {
+    "title": "Configurazione iniziale",
+    "intro": "Prima di usare l'applicazione è necessario configurare due impostazioni. Potrai modificarle in seguito da Impostazioni.",
+    "workspaceLabel": "Cartella di lavoro",
+    "workspaceHelp": "Qui vengono salvati i documenti generati dall'applicazione. La struttura di sotto-cartelle viene creata automaticamente.",
+    "workspacePlaceholder": "Nessuna cartella selezionata",
+    "browse": "Sfoglia",
+    "profileLabel": "Tipo di profilo",
+    "profileHelp": "La scelta del profilo determina quali funzionalità sono disponibili.",
+    "profileEntratelHelp": "Sicurezza, Documenti e Ricevute.",
+    "profileFisconlineHelp": "Sicurezza e Documenti.",
+    "confirm": "Conferma e prosegui",
+    "errorWorkspaceRequired": "Seleziona una cartella di lavoro.",
+    "errorProfileRequired": "Seleziona un tipo di profilo.",
+    "errorWorkspaceNotWritable": "La cartella selezionata non è scrivibile. Scegline un'altra."
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Benvenuto nel Desktop Telematico Entrate",
+    "mainAreas": "Funzionalità principali",
+    "accessoryAreas": "Funzionalità accessorie",
+    "openArea": "Apri"
+  },
+  "state": {
+    "attiva": "Attiva",
+    "non-attiva": "Non attiva",
+    "non-applicabile": "Non applicabile",
+    "notActiveHint": "Funzionalità dichiarata «per ora non attiva» nel documento di requisiti."
+  },
+  "spec": {
+    "label": "Specifica",
+    "completa": "Completa",
+    "parziale": "Parziale",
+    "assente": "Assente",
+    "completaHelp": "Campi, etichette e validazioni note dai manuali: implementabile.",
+    "parzialeHelp": "Parte nota, parte da dedurre o da chiedere al cliente.",
+    "assenteHelp": "Rimanda al prototipo, che non è stato consegnato."
+  },
+  "stub": {
+    "badge": "Da implementare",
+    "heading": "Schermata non ancora implementata",
+    "sourceLabel": "Fonte della specifica",
+    "noteLabel": "Note",
+    "back": "Torna indietro"
+  },
+  "area": {
+    "sicurezza": {
+      "title": "Sicurezza",
+      "description": "Genera e gestisci l'ambiente di sicurezza, i certificati e la password di protezione."
+    },
+    "documenti": {
+      "title": "Documenti",
+      "description": "Controlla, autentica, firma e invia i documenti telematici."
+    },
+    "ricevute": {
+      "title": "Ricevute",
+      "description": "Apri, visualizza e stampa le ricevute dei documenti inviati."
+    },
+    "impostazioni": {
+      "title": "Impostazioni",
+      "description": "Area di lavoro, proxy e informazioni sull'applicazione."
+    },
+    "strumenti": {
+      "title": "Strumenti",
+      "description": "Log dell'applicazione e storico delle operazioni."
+    },
+    "moduli-controllo": {
+      "title": "Moduli di controllo",
+      "description": "Installazione e disinstallazione dei moduli di controllo."
+    },
+    "applicazione": {
+      "title": "Aggiornamento applicazione",
+      "description": "Verifica aggiornamenti e disinstallazione."
+    },
+    "help": {
+      "title": "Help",
+      "description": "Assistenza, area riservata e manuale utente."
+    }
+  },
+  "feature": {
+    "genera-ambiente": {
+      "title": "Genera ambiente",
+      "description": "Crea l'ambiente di sicurezza e la richiesta di certificazione."
+    },
+    "importa-certificati": {
+      "title": "Importa certificati",
+      "description": "Importa le chiavi pubbliche validate dall'Agenzia."
+    },
+    "visualizza-certificati": {
+      "title": "Visualizza certificati",
+      "description": "Consulta i certificati dell'ambiente di sicurezza."
+    },
+    "cambia-password": {
+      "title": "Cambia password",
+      "description": "Modifica la password di protezione dell'ambiente."
+    },
+    "annulla": {
+      "title": "Annulla",
+      "description": "Predispone una richiesta di annullamento documenti."
+    },
+    "controlla-singolo": {
+      "title": "Controlla singolo file",
+      "description": "Diagnostica un singolo file telematico."
+    },
+    "controlla-fornitura": {
+      "title": "Controlla fornitura su più file",
+      "description": "Diagnostica una fornitura composta da più file."
+    },
+    "visualizza-richieste-annullamento": {
+      "title": "Visualizza richieste di annullamento",
+      "description": "Elenco delle richieste di annullamento inviate."
+    },
+    "visualizza-esito": {
+      "title": "Visualizza esito",
+      "description": "Esito diagnostico dei file controllati."
+    },
+    "visualizza-contenuto-file": {
+      "title": "Visualizza contenuto file",
+      "description": "Consultazione del contenuto di un file telematico."
+    },
+    "autentica-singolo": {
+      "title": "Autentica singolo file",
+      "description": "Autentica un file già controllato."
+    },
+    "autentica-multiplo": {
+      "title": "Autentica più file",
+      "description": "Autentica in blocco più file già controllati."
+    },
+    "firma-file": {
+      "title": "Firma file",
+      "description": "Appone la firma su un file."
+    },
+    "invia-file": {
+      "title": "Invia file",
+      "description": "Trasmette i file autenticati ai servizi telematici."
+    },
+    "apri-ricevute": {
+      "title": "Apri ricevute",
+      "description": "Decifra e apre le ricevute scaricate."
+    },
+    "visualizza-stampa-ricevute": {
+      "title": "Visualizza e stampa ricevute",
+      "description": "Consulta e stampa le ricevute."
+    },
+    "configurazione-workspace": {
+      "title": "Configurazione area di lavoro",
+      "description": "Tipo utente, area di lavoro e ambiente di sicurezza."
+    },
+    "configurazione-proxy": {
+      "title": "Configurazione proxy",
+      "description": "Impostazione del proxy di rete."
+    },
+    "informazioni": {
+      "title": "Informazioni",
+      "description": "Versioni, percorsi, moduli e componenti installate."
+    },
+    "log-frontend": {
+      "title": "Log frontend",
+      "description": "Registro degli eventi dell'interfaccia."
+    },
+    "log-backend": {
+      "title": "Log backend",
+      "description": "Registro degli eventi della business logic."
+    },
+    "storico": {
+      "title": "Storico",
+      "description": "Storico delle operazioni eseguite."
+    },
+    "installa-disinstalla-moduli": {
+      "title": "Installa e disinstalla moduli di controllo",
+      "description": "Gestione dei moduli di controllo."
+    },
+    "aggiornamento-applicazione": {
+      "title": "Aggiornamento applicazione",
+      "description": "Verifica la disponibilità di aggiornamenti."
+    },
+    "disinstalla-applicazione": {
+      "title": "Disinstalla applicazione",
+      "description": "Rimuove il Desktop Telematico dalla postazione."
+    },
+    "assistenza": {
+      "title": "Assistenza e manuale",
+      "description": "Link all'assistenza, all'area riservata e al manuale utente."
+    }
+  },
+  "catalog": {
+    "title": "Catalogo componenti",
+    "subtitle": "Ricostruzione del markup del design system 5.2.2, componente per componente. Il kit non contiene esempi HTML: questa pagina è il nostro riferimento e vale come richiesta puntuale a Sogei.",
+    "markupLabel": "Markup",
+    "sections": {
+      "typography": "Tipografia e colori",
+      "buttons": "Bottoni",
+      "forms": "Campi di form",
+      "cards": "Card",
+      "callout": "Callout",
+      "chips": "Chip",
+      "stepper": "Stepper",
+      "wizard": "Wizard",
+      "table": "Tabella adattiva",
+      "feedback": "Modal, toast e alert"
+    }
+  },
+  "specMatrix": {
+    "title": "Matrice delle specifiche",
+    "subtitle": "Stato della specifica per ogni schermata del perimetro. È il modo più efficace di chiedere al cliente ciò che manca.",
+    "colFeature": "Schermata",
+    "colArea": "Area",
+    "colProfiles": "Profili",
+    "colState": "Stato",
+    "colSpec": "Specifica",
+    "colSource": "Fonte",
+    "colNote": "Note",
+    "totals": "{{completa}} complete · {{parziale}} parziali · {{assente}} assenti su {{total}} schermate"
+  },
+  "common": {
+    "loading": "Caricamento…",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "save": "Salva",
+    "close": "Chiudi",
+    "notFound": "Pagina non trovata",
+    "notFoundHelp": "L'indirizzo richiesto non corrisponde a nessuna schermata.",
+    "backHome": "Torna alla home"
+  }
+}

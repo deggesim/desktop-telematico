@@ -1,0 +1,72 @@
+appId: it.agenziaentrate.desktoptelematico
+productName: Desktop Telematico Entrate
+
+directories:
+  output: release
+
+# ---------------------------------------------------------------------------
+# Vincolo "no admin"
+# ---------------------------------------------------------------------------
+# Il piano cliente prevede il collaudo su macchina virtuale SENZA privilegi di
+# amministratore. Su Windows questo impone perMachine: false (installazione
+# per-utente sotto %LOCALAPPDATA%) e il target portable come fallback.
+# Le architetture a 32 bit non sono nel perimetro del piano.
+# ---------------------------------------------------------------------------
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+  icon: build/icon.ico
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  artifactName: ${productName}-Setup-${version}.${ext}
+
+mac:
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+  category: public.app-category.business
+  icon: build/icon.icns
+
+linux:
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+  category: Office
+  icon: build/icon.png
+
+files:
+  - out/main/**/*
+  - out/preload/**/*
+  - out/renderer/**/*
+  - package.json
+  - node_modules/**/*
+  - "!node_modules/.cache/**/*"
+  - "!node_modules/.bin/**/*"
+  - "!**/node_modules/*/test/**/*"
+  - "!**/node_modules/*/tests/**/*"
+  - "!**/node_modules/*/__tests__/**/*"
+  - "!**/node_modules/*/spec/**/*"
+  - "!**/node_modules/*/*.md"
+  - "!**/node_modules/*/*.map"
+  - "!**/node_modules/*/src/**/*.ts"
+  - "!**/node_modules/*/src/**/*.tsx"
+  - "!**/node_modules/better-sqlite3/build/Release/obj.target/**/*"
+  - "!**/node_modules/better-sqlite3/src/**/*"
+  - "!**/node_modules/better-sqlite3/deps/**/*"
+
+# I binari nativi devono stare fuori dall'asar: asar è un filesystem virtuale
+# e non può esporre i .node a dlopen/LoadLibrary.
+asarUnpack:
+  - "**/*.node"
+  - "node_modules/better-sqlite3/build/Release/better_sqlite3.node"
