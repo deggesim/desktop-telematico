@@ -9,12 +9,13 @@
 import { app, BrowserWindow, shell } from "electron";
 import { is } from "@electron-toolkit/utils";
 import path from "path";
-import { fileURLToPath } from "url";
 import { closeDb } from "./db/db.js";
 import { registerIpcHandlers } from "./ipc/register-handlers.js";
 import { appendLog } from "./logger.js";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// Non dichiarare `__dirname`: rolldown inietta il proprio shim CJS in cima al
+// bundle ESM del main e la doppia dichiarazione è un SyntaxError al load.
+const bundleDir = import.meta.dirname;
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -30,7 +31,7 @@ const createWindow = (): void => {
     // otto variabili della navbar e non è un tema).
     backgroundColor: "#ffffff",
     webPreferences: {
-      preload: path.join(__dirname, "../preload/index.cjs"),
+      preload: path.join(bundleDir, "../preload/index.cjs"),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
@@ -59,7 +60,7 @@ const createWindow = (): void => {
     mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"]);
     mainWindow.webContents.openDevTools({ mode: "detach" });
   } else {
-    mainWindow.loadFile(path.join(__dirname, "../renderer/index.html"));
+    mainWindow.loadFile(path.join(bundleDir, "../renderer/index.html"));
   }
 
   mainWindow.on("closed", () => {
