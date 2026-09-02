@@ -47,6 +47,20 @@ export const AppSidebar = ({ profile }: Props) => {
             {t(`area.${area.id}.title`)}
           </NavLink>
         ))}
+
+        {import.meta.env.DEV && (
+          <>
+            <hr className="nav-divider" />
+            <NavLink to="/catalogo" className={linkClass}>
+              <i className="bi bi-bug me-2" aria-hidden="true" />
+              {t("catalog.title")}
+            </NavLink>
+            <NavLink to="/stato-specifiche" className={linkClass}>
+              <i className="bi bi-bug me-2" aria-hidden="true" />
+              {t("specMatrix.title")}
+            </NavLink>
+          </>
+        )}
       </nav>
     </div>
   );
