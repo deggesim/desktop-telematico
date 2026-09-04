@@ -19,8 +19,9 @@ import { useConfigStore } from "../store/configStore";
 export const FirstRunDialog = () => {
   const { t } = useTranslation();
   const completeFirstRun = useConfigStore((s) => s.completeFirstRun);
+  const savedWorkspacePath = useConfigStore((s) => s.config?.workspacePath ?? "");
 
-  const [workspacePath, setWorkspacePath] = useState("");
+  const [workspacePath, setWorkspacePath] = useState(savedWorkspacePath);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);

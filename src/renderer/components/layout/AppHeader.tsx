@@ -18,9 +18,10 @@ export const AppHeader = () => {
   const { t, i18n } = useTranslation();
   const profile = useProfile();
   const setLanguage = useConfigStore((s) => s.setLanguage);
+  const resetFirstRun = useConfigStore((s) => s.resetFirstRun);
 
   const onExit = () => {
-    void window.electronAPI.appQuit();
+    void resetFirstRun();
   };
 
   const onOpenSupport = () => {

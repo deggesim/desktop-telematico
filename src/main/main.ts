@@ -58,7 +58,7 @@ const createWindow = (): void => {
 
   if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
     mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"]);
-    mainWindow.webContents.openDevTools({ mode: "detach" });
+    mainWindow.webContents.openDevTools({ mode: "right" });
   } else {
     mainWindow.loadFile(path.join(bundleDir, "../renderer/index.html"));
   }

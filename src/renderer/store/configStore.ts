@@ -19,6 +19,7 @@ type ConfigStore = {
     workspacePath: string,
     profile: UserProfile,
   ) => Promise<void>;
+  resetFirstRun: () => Promise<void>;
 };
 
 export const useConfigStore = create<ConfigStore>((set, get) => ({
@@ -48,6 +49,12 @@ export const useConfigStore = create<ConfigStore>((set, get) => ({
   completeFirstRun: async (workspacePath, profile) => {
     await window.electronAPI.workspaceEnsure(workspacePath);
     await get().patch({ workspacePath, profile, firstRunCompleted: true });
+  },
+
+  // "Esci" non chiude l'app: riporta al primo avvio per rifare solo la scelta
+  // Entratel/Fisconline. La cartella di lavoro già scelta resta in config.
+  resetFirstRun: async () => {
+    await get().patch({ profile: null, firstRunCompleted: false });
   },
 }));
 
