@@ -12,6 +12,14 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    // Duplica la mappa di tsconfig.web.json: VS Code, aprendo un file sotto
+    // src/renderer o src/shared, risolve questo file (non tsconfig.web.json,
+    // che non è referenziato) perché è l'unico letteralmente chiamato
+    // tsconfig.json. Senza questa riga l'editor segnala @shared/* come
+    // irrisolvibile anche se `npm run typecheck` passa.
+    "paths": {
+      "@shared/*": ["./src/shared/*"]
+    }
   }
 }
