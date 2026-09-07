@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "title": "Design System: Desktop Telematico Entrate",
+  "extensions": {
+    "colorMeta": {
+      "primario": {
+        "role": "primary",
+        "displayName": "Blu Istituzionale",
+        "canonical": "#004080",
+        "tonalRamp": ["#001a33", "#00264d", "#003366", "#004080", "#336699", "#668cb3", "#99b3cc", "#ccd9e6", "#e6ecf2"]
+      },
+      "primario-hover": {
+        "role": "primary-hover",
+        "displayName": "Blu Istituzionale — Hover",
+        "canonical": "#00366d"
+      },
+      "secondario": {
+        "role": "secondary",
+        "displayName": "Arancione Istituzionale",
+        "canonical": "#eb641f",
+        "tonalRamp": ["#2f1406", "#5e280c", "#8d3c13", "#bc5019", "#eb641f", "#ef834c", "#f3a279", "#f7c1a5", "#fbe0d2"]
+      },
+      "bianco-carta": { "role": "neutral", "displayName": "Bianco Carta", "canonical": "#ffffff" },
+      "grigio-sportello": { "role": "neutral", "displayName": "Grigio Sportello", "canonical": "#f4f5f6" },
+      "grigio-confine": { "role": "neutral", "displayName": "Grigio Confine", "canonical": "#ced4da" },
+      "inchiostro": { "role": "neutral", "displayName": "Inchiostro", "canonical": "#1a1a1a" },
+      "verde-conformita": { "role": "success", "displayName": "Verde Conformità", "canonical": "#008055" },
+      "rosso-anomalia": { "role": "danger", "displayName": "Rosso Anomalia", "canonical": "#cc334d" },
+      "ambra-attenzione": { "role": "warning", "displayName": "Ambra Attenzione", "canonical": "#995c00" },
+      "blu-informativo": { "role": "info", "displayName": "Blu Informativo", "canonical": "#0066cc" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titolo h1 di pagina, uno per schermata." },
+      "headline": { "displayName": "Headline", "purpose": "Sezioni di primo livello dentro una pagina lunga." },
+      "title": { "displayName": "Title", "purpose": "Intestazioni di card e blocco form; il PageHeader usa 1.75rem come titolo corrente." },
+      "body": { "displayName": "Body", "purpose": "Testo di form, tabelle, callout, corpo generale." },
+      "label": { "displayName": "Label", "purpose": "Badge di stato, testo dei bottoni; la variante maiuscola serve da etichetta di sezione (sidebar-title, callout-title)." }
+    },
+    "shadows": [
+      { "name": "elevated-bar", "value": "0 0.5rem 1rem rgba(0, 0, 0, 0.15)", "purpose": "Unica ombra propria del sistema: distingue lo stepper orizzontale come barra sospesa sopra il contenuto." },
+      { "name": "focus-ring-primary", "value": "0 0 0 0.25rem rgba(0, 64, 128, 0.25)", "purpose": "Alone di focus su campi form e bottoni, sostituisce l'outline nativo mantenendo comunque focus-visible del kit." },
+      { "name": "kit-sm", "value": "0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)", "purpose": "Disponibile nel kit (--bs-box-shadow-sm) ma non usata dai componenti attualmente implementati." },
+      { "name": "kit-lg", "value": "0 1rem 3rem rgba(0, 0, 0, 0.175)", "purpose": "Disponibile nel kit (--bs-box-shadow-lg) ma non usata dai componenti attualmente implementati." }
+    ],
+    "motion": [
+      { "name": "state-transition", "value": "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out", "purpose": "Transizione standard di hover/focus su campi form e bottoni." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "576px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "992px" },
+      { "name": "xl", "value": "1200px" },
+      { "name": "xxl", "value": "1400px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Azione principale di una form o di una barra (es. Invia file, Firma).",
+      "html": "<button class=\"ds-btn-primary\">Invia file</button>",
+      "css": ".ds-btn-primary { background-color: #004080; color: #fff; border: 1px solid #004080; border-radius: 0.25rem; padding: 0.375rem 0.75rem; font-family: 'Titillium Web', system-ui, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.5; cursor: pointer; transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; } .ds-btn-primary:hover { background-color: #00366d; border-color: #00366d; } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 0.25rem rgba(0, 64, 128, 0.25); } .ds-btn-primary:active { background-color: #00366d; border-color: #00366d; box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline-primary",
+      "description": "Azione secondaria in barre strette (es. Esci nell'header).",
+      "html": "<button class=\"ds-btn-outline\">Esci</button>",
+      "css": ".ds-btn-outline { background-color: transparent; color: #004080; border: 1px solid #004080; border-radius: 0.25rem; padding: 0.25rem 0.5rem; font-family: 'Titillium Web', system-ui, sans-serif; font-size: 0.875rem; cursor: pointer; transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out; } .ds-btn-outline:hover { background-color: #004080; color: #fff; } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 0.25rem rgba(0, 64, 128, 0.25); }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Selezione o stato attivo (es. profilo utente nell'header, filtro selezionato).",
+      "html": "<button class=\"ds-chip ds-chip-active\" aria-pressed=\"true\">Profilo: Entratel</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; background-color: #f4f5f6; color: #1a1a1a; border: 1px solid #ced4da; border-radius: 50rem; padding: 0.25rem 0.75rem; font-family: 'Titillium Web', system-ui, sans-serif; font-size: 0.875rem; cursor: pointer; } .ds-chip-active { background-color: #e6ecf2; border-color: #004080; color: #004080; font-weight: 600; } .ds-chip:focus-visible { outline: none; box-shadow: 0 0 0 0.25rem rgba(0, 64, 128, 0.25); }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card di un'area applicativa in home, con link alle sue funzionalità.",
+      "html": "<div class=\"ds-card\"><h2 class=\"ds-card-title\">Documenti</h2><p class=\"ds-card-text\">Controlla, firma e invia documenti fiscali telematici.</p><a class=\"ds-card-link\" href=\"#\">Invia file</a></div>",
+      "css": ".ds-card { background-color: #ffffff; color: #1a1a1a; border: 1px solid #ced4da; border-radius: 0.25rem; padding: 1rem; font-family: 'Titillium Web', system-ui, sans-serif; } .ds-card-title { font-family: 'Lora', Georgia, serif; font-size: 1.25rem; font-weight: 600; line-height: 1.2; margin: 0 0 0.5rem; } .ds-card-text { color: #6c757d; margin: 0 0 0.75rem; } .ds-card-link { color: #0066cc; text-decoration: underline; } .ds-card-link:hover { color: #00366d; }"
+    },
+    {
+      "name": "Callout",
+      "kind": "custom",
+      "refersTo": "callout-primary",
+      "description": "Avviso non bloccante o nota informativa dentro una form, con etichetta sovrapposta al bordo superiore.",
+      "html": "<div class=\"ds-callout\" role=\"note\"><div class=\"ds-callout-title\">Attenzione</div>La trasmissione sperimentale genera sempre una ricevuta di scarto.</div>",
+      "css": ".ds-callout { position: relative; border-left: 2px solid #004080; padding: 1rem 1.5rem; margin: 2rem 0 1rem; font-family: 'Titillium Web', system-ui, sans-serif; color: #1a1a1a; } .ds-callout-title { position: absolute; top: -0.75rem; left: 1rem; background-color: #ffffff; color: #004080; font-size: 1rem; font-weight: 600; text-transform: uppercase; padding: 0 0.5rem; }"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "form-control",
+      "description": "Campo di testo standard di ogni form del client.",
+      "html": "<label class=\"ds-label\" for=\"demo-field\">Codice fiscale</label><input class=\"ds-input\" id=\"demo-field\" type=\"text\" />",
+      "css": ".ds-label { display: block; font-family: 'Titillium Web', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; color: #1a1a1a; } .ds-input { display: block; width: 100%; padding: 0.5rem 0.75rem; font-family: 'Titillium Web', system-ui, sans-serif; font-size: 1rem; color: #1a1a1a; background-color: #ffffff; border: 1px solid #6c757d; border-radius: 0.25rem; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; } .ds-input:focus { outline: none; border-color: #80a0c0; box-shadow: 0 0 0 0.25rem rgba(0, 64, 128, 0.25); }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "custom",
+      "refersTo": "chip",
+      "description": "Badge di stato specifica/funzionalità (SpecBadge/StateBadge), visibile solo in sviluppo.",
+      "html": "<span class=\"ds-badge ds-badge-warning\">Specifica: parziale</span>",
+      "css": ".ds-badge { display: inline-block; padding: 0.25em 0.5em; font-family: 'Titillium Web', system-ui, sans-serif; font-size: 0.875em; font-weight: 600; line-height: 1; border-radius: 0.25rem; color: #fff; } .ds-badge-warning { background-color: #995c00; } .ds-badge-success { background-color: #008055; } .ds-badge-danger { background-color: #cc334d; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Lo Sportello Telematico",
+    "overview": "Il sistema visivo non è una scelta di prodotto: è il design kit istituzionale ds-agenzia-entrate-ui-developer-kit-5.2.2, vendorizzato verbatim e mai modificato. Il tono che ne risulta è quello di uno sportello pubblico digitale — l'utente arriva per completare un adempimento fiscale, non per essere intrattenuto. Ogni schermata è procedurale: un modulo, una validazione, una ricevuta. Non c'è spazio per decorazione, illustrazione o narrazione di prodotto; la fiducia si costruisce con coerenza e prevedibilità, non con espressività. La coppia tipografica lo rende esplicito: titoli in Lora (serif, peso 600) sopra un corpo in Titillium Web (sans-serif). È una scelta istituzionale precisa — il serif nei titoli dà autorità da documento ufficiale, il sans-serif nel corpo resta leggibile nelle form dense. Il colore fa lo stesso lavoro: il blu profondo (#004080) è l'unico colore ad alta presenza (header, footer, bottoni primari); l'arancione istituzionale (#eb641f) compare come accento raro, mai come sfondo esteso.",
+    "keyCharacteristics": [
+      "Piatto per default: nessuna ombra decorativa, la profondità è quasi sempre un bordo, non un box-shadow.",
+      "Raggi minimi e costanti (0.25rem) tranne pillole (chip, indice dello stepper) e badge di stato.",
+      "Serif nei titoli, sans-serif nel corpo: gerarchia tipografica, non gerarchia di famiglia unica.",
+      "Un solo colore ad alta saturazione visibile per volta: il blu è la superficie, l'arancione è il segnale.",
+      "Light-only: il \"tema scuro\" del kit copre otto variabili della navbar, non è una dark mode da estendere."
+    ],
+    "rules": [
+      { "name": "La Regola del Colore Raro", "body": "L'arancione istituzionale non è mai uno sfondo esteso né un colore di stato: compare come chip attivo, evidenziazione puntuale o bordo. La sua rarità è ciò che lo rende un segnale, non un accento decorativo.", "section": "colors" },
+      { "name": "La Regola del Serif Solo nei Titoli", "body": "Lora compare esclusivamente in h1–h6. Nessun campo form, bottone o testo di corpo passa al serif: è un segnale di intestazione, non un'estetica da applicare liberamente.", "section": "typography" },
+      { "name": "La Regola del Bordo, non dell'Ombra", "body": "Se un elemento deve separarsi dallo sfondo, prima si prova un bordo o un cambio di superficie; l'ombra è riservata a elementi di navigazione/avanzamento che devono leggersi come sospesi sopra il contenuto (stepper), non come default di ogni contenitore.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usare text-body-secondary per il testo attenuato — mai text-secondary, che nel kit è l'arancione istituzionale, non un grigio.",
+      "Do applicare data-th su ogni cella del corpo quando si scrive una AdaptiveTable a mano.",
+      "Do marcare lo step corrente di uno Stepper con aria-current=\"step\": è il selettore che il CSS usa per attenuare gli altri.",
+      "Do passare dai wrapper in components/ds/ per ogni componente CSS-only del kit (Callout, Chip, Stepper, Wizard, AdaptiveTable); un nuovo componente si aggiunge lì e si mostra in /catalogo, non si reinterpreta dentro una schermata.",
+      "Do usare componenti imperativi (modal, dropdown, toast, offcanvas, tooltip) solo tramite react-bootstrap."
+    ],
+    "donts": [
+      "Don't modificare src/renderer/vendor/ds-agenzia-entrate/: è vendorizzato verbatim, senza sorgenti SCSS né sourcemap utili — non è ricompilabile.",
+      "Don't aggiungere box-shadow decorativo a card o contenitori generici: la profondità di questo sistema è il bordo, non l'ombra (eccetto lo stepper).",
+      "Don't usare attributi data-bs-*: il bundle JS del kit non è caricato, react-bootstrap reimplementa i componenti imperativi e la doppia inizializzazione romperebbe lo stato.",
+      "Don't costruire una dark mode sopra il \"tema scuro\" del kit: copre otto variabili della navbar, non è un sistema di temi.",
+      "Don't importare il CSS del pacchetto bootstrap: il kit è già Bootstrap 5.3.8 ricompilato con le variabili dell'Agenzia; caricare entrambi produce sovrascritture silenziose."
+    ]
+  }
+}
