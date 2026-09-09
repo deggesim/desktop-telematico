@@ -4,21 +4,6 @@ name: Build
 # devono girare sull'OS di destinazione (il target mac, in particolare, non si
 # puo' produrre su un host non-macOS). Ogni job compila sul proprio runner
 # nativo invece di tentare una cross-compilazione da Windows.
-#
-# Questa istanza GHES non offre runner ospitati da GitHub: servono tre runner
-# self-hosted, uno per OS, registrati su Settings > Actions > Runners > New
-# self-hosted runner (repo o org). Ogni runner riceve in automatico le
-# etichette "self-hosted", il proprio OS ("Windows" | "macOS" | "Linux") e
-# l'architettura ("X64" | "ARM64"): non serve assegnare etichette custom,
-# basta registrarne uno per piattaforma perche' i `runs_on` sotto trovino
-# match. Prerequisiti da installare a mano sulla macchina del runner (non
-# gestiti dalla pipeline, a differenza dei runner ospitati da GitHub):
-#   - Windows: Visual Studio Build Tools (workload "Desktop development with
-#     C++") + Python 3, per compilare il native addon better-sqlite3.
-#   - macOS: Xcode Command Line Tools (`xcode-select --install`).
-#   - Linux: build-essential + python3, e sudo senza password per l'utente
-#     del runner (serve al passo che installa libfuse2 piu' sotto).
-# Node lo installa il passo actions/setup-node: non va preinstallato.
 
 on:
   push:
@@ -32,16 +17,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - platform: windows
-            runs_on: [self-hosted, Windows, X64]
+          - os: windows-latest
             build_script: build:win
-          - platform: macos
-            runs_on: [self-hosted, macOS]
+          - os: macos-latest
             build_script: build:mac
-          - platform: linux
-            runs_on: [self-hosted, Linux, X64]
+          - os: ubuntu-latest
             build_script: build:linux
-    runs-on: ${{ matrix.runs_on }}
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
 
@@ -59,8 +41,8 @@ jobs:
       - run: npm run selfcheck
 
       # electron-builder scarica appimagetool come AppImage: senza FUSE non
-      # riesce ad auto-estrarsi. Richiede sudo senza password sul runner.
-      - if: matrix.platform == 'linux'
+      # riesce ad auto-estrarsi sui runner Linux ospitati da GitHub.
+      - if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y libfuse2
@@ -74,7 +56,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: desktop-telematico-${{ matrix.platform }}
+          name: desktop-telematico-${{ matrix.os }}
           path: |
             release/*.exe
             release/*.dmg
