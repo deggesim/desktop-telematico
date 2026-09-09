@@ -4,6 +4,11 @@ productName: Desktop Telematico Entrate
 directories:
   output: release
 
+# Nessun canale di distribuzione configurato: senza questo, electron-builder
+# rileva l'esecuzione in CI e tenta comunque di pubblicare, fallendo per
+# mancanza di un GH_TOKEN.
+publish: never
+
 # ---------------------------------------------------------------------------
 # Vincolo "no admin"
 # ---------------------------------------------------------------------------
